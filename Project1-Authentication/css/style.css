@@ -1,0 +1,104 @@
+body{
+ font-family:  Times New Roman;
+  font-size: 13px;
+  background-color: white;  
+}
+#wrapper{
+  width: 970px;
+  border: solid 1px #999999;
+  margin: 0px auto 0px auto;
+   background-color: #9782b5;  
+}
+header{
+   background-color: white;
+  padding: 10px 0px 10px 0px;
+   
+   
+}
+header h1, header figure{
+	display: inline;
+	 
+	
+}
+#pic{
+	margin: -50px 10px 10px 50px;
+}
+header figure {
+	margin: 500px 10px 10px 50px;
+	width: 10px;
+	height: 10px;
+	
+	}
+h1{
+	font-style: blue;
+	
+  padding: 0px;
+  margin-left: 150px;
+  text-align: center;
+   font-size: 30px;
+   }
+#menu{
+margin-top: 3%;
+}
+
+nav ul li{
+	
+	     display: block;
+        padding-right: 40px;
+        font-size: 30px;
+}
+h2{
+  text-align: left;
+   font-size: 30px;
+   }
+
+section article
+{
+margin: 10px 10px 10px 10px;
+}
+
+section article figure a{
+margin-top: 3%;
+float:left; 
+text-decoration: none;
+width: 90px;
+height:90px;
+       
+}
+ #links ol{
+
+	
+        display: block;
+        font-size: 30px;
+        float: right; 
+       line-height:45px;
+        margin-right:15%;
+}
+        
+#registration{
+	padding-left: 20px;
+}
+#registration label{
+	width: 200px;
+	display: inline-block;
+	padding-bottom: 10px;
+	font-weight: bold;
+} 
+.register-btn{
+	margin-left: 200px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.register-btn input{
+	margin-right: 10px;
+}  
+footer{
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 10px 0 10px 0;
+  }
+ 
+h3{
+  font-size: 20px;
+}
