@@ -5,10 +5,10 @@ body{
   background-color: white;  
 }
 #wrapper{
-  width: 1010px;
- border: solid 10px #999999;
+  width: 1020px;
+ border: solid 5px #999999;
   margin: 0px auto 0px 200px;
-  
+  background-color:#d9f2e6;
 }
 header{
 	
@@ -113,10 +113,11 @@ height:50px;
 #cloudservice, #iot{
 	margin-left: 200px;
 }
+#devices{
+	margin-left: 10px;
+}
+
  
- #mobileiot  {
-	 font-weight: normal;
- }     
 #cloud, #future, #reference{
 	font-size: 17px;
 }
