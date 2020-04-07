@@ -11,7 +11,7 @@
 <style>
 .sidenav {
   height: 100%;
-  width: 174px;
+  width: 240px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -22,7 +22,7 @@
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 30px;
   text-decoration: none;
   font-size: 20px;
   color: white;
@@ -34,7 +34,7 @@
 }
 
 .main {
-  margin-left: 160px; /* Same as the width of the sidenav */
+  margin-left: 240px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
@@ -80,7 +80,7 @@ Authentication Featuring Web & Cloud services
     </ul>
 </nav>-->
 <div class="sidenav">
-  <a href="#picl"><img id="fprint" src="images/fingerprint.png" alt="ACCENTURE" width= "150px" height= "120px"></a>
+  <a href="#wrapper"><img id="fprint" src="images/fingerprint.png" alt="ACCENTURE" width= "150px" height= "120px"></a>
   <a href="#review">Review Of Authentication</a>
   <a href="#devices">Authentication In Different Devices</a>
   <a href="#devices"><li>Mobile</li></a>
@@ -96,7 +96,7 @@ Authentication Featuring Web & Cloud services
 
 <!-- Article post -->
 <section>
-<article>
+<article style="text-align:justify">
  
 <figure>
       <img id="intro" src="images/intro.jpg"  alt="" width= "300px" height= "300px">
@@ -125,7 +125,7 @@ someone gets hold of your biometrics, unlike a password which can be changed.</l
 
 
 <!-- Devices -->
-<article id="devices">
+<article id="devices" style="text-align:justify">
 <h3>Authetication in different Devices</h3>
 <p id="mobileiot"><li><b>Mobile Authentication:</b><br>
 Mobile authentication is the verification of a user’s identity through the use of a mobile device and one or more authentication methods for secure access. Mobile devices can also be used as one of the authentication levels in other multiple authentication methods such as software-based security applications on a mobile device generate an OTP to the device for signing on. Authentication techniques such as Slide Lock
@@ -139,7 +139,7 @@ Popular examples are use of MAC (Message Authentication Code) to enable secure k
 <p>Below picture showcase how an IoT device (smart watch) is being authenticated via bluetooth with the smart mobile to seek privileges to operate.</p><br>
 <img id="iot" src="images/IoT.png" alt="" width="450px" height="240px">
 </p>
-<li id="pc">Authentication in PCs<br>
+<li id="pc"><b>Authentication in PCs</b><br>
  There are a number of applications to secure your personal computer or Desktop, One being entering username and Password .
 Encrypting laptop’s Hard drive makes it impossible to read or retrieve all  data, whether sensitive or not. Even if the hard drive is removed from the machine and reinstalled in another laptop, desktop or even test bed, the data still cannot be recovered.
 Many other tools/ applications like Safeboot & SaaSPaas are in use to are used to authenticate PCs.</li>
@@ -150,7 +150,7 @@ Many other tools/ applications like Safeboot & SaaSPaas are in use to are used t
 
 
 <!-- Cloud services -->
-<article id="cloud">
+<article id="cloud" style="text-align:justify">
 
 <h3><b>Overview Of Cloud Services & Authentication</b></h3>
 <p><b>What is Cloud Service</b></p>
@@ -181,7 +181,7 @@ There are three important factors of cloud security requirements, these are conf
 <li><b>Availability</b>- To ensure that only authorized person can access to shared information in cloud service provider</li></ul>
 
 <p><b>Authentication Techniques</b></p>
-<!--<img  src="images/acloud.png" style="margin-left:160px"  alt="" width="350px" height="300px">-->
+<img  src="images/acloud.png" style="margin-left:160px"  alt="" width="350px" height="300px">
 <p><ol><li><b>Username and Password Authentication :</b><br>
     Username and password are required to access information in the CSP .
     This technique fails in providing a higher and reliable security because it is tough to check whether the request is from the authorized user
@@ -217,7 +217,7 @@ Authentication of user becomes an important issue in cloud computing in order to
 
 
 <!-- Two factor Authetication -->
-<article id="twofactor">
+<article id="twofactor" style="text-align:justify">
 <h4>Two Factor Authentication</h4>
 <p>Two-factor authentication (2FA),is a security process in which users provide two different authentication factors to verify themselves. 
 It  is done to better protect both the user's credentials and the resources the user can access. Two-factor authentication provides a higher level 
@@ -230,22 +230,22 @@ of assurance than authentication methods that depend on single-factor authentica
 
 
 <!-- Implementation -->
-<article id="implementation">
+<article id="implementation" style="text-align:justify">
 <h5>Implementation Using Google Authenticator</h5>
 
 <p>Passwords can be guessed, phone numbers can be spoofed, but using two-factor authentication essentially requires that the user be in possession of a 
 physical device with an app like Google Authenticator, loaded with a secret key for the given app, which provides an extra layer of security.
 </p>
 <p><b>TwoFactor authentication using Node.js:</b><br><br>
- TOTP (Time-based One Time Password)
-	TOTP is defined in <a href="https://tools.ietf.org/html/rfc6238">RFC 6238.</a> There are many open-source implementations for both the client-side and server-side components. In particular, Google has developed an application that is freely available for Android, iOS and the web: Google Authenticator. This application allows us to integrate TOTP easily into our developments. We will explore how to do so in the following sections, but first I'll give you a quick summary of TOTP and how it usually works in two steps:
-<br><li>1)Enrollment: Enabling 2FA for a specific user.</li>
-<li>2)Login: Using 2FA to log in</li><br>
+ TOTP (Time-based One Time Password)<br>
+	It is defined in <a href="https://tools.ietf.org/html/rfc6238">RFC 6238.</a> There are many open-source implementations for both the client-side and server-side components. In particular, Google has developed an application that is freely available for Android, iOS and the web: Google Authenticator. This application allows us to integrate TOTP easily into our developments. We will explore how to do so in the following sections, but first I'll give you a quick summary of TOTP and how it usually works in two steps:
+<br><ol><li>Enrollment: Enabling 2FA for a specific user.</li>
+<li>Login: Using 2FA to log in</li></ol><br>
 <img  src="images/twofactor.png" style="margin-left:160px"  alt="" >
 
 <p>Passport.js
-	Is authentication middle for node.js. Passport uses the concept of strategies to authenticate requests. Strategies can range from verifying username and password credentials, delegated authentication using OAuth (for example, via Facebook or Twitter), or federated authentication using OpenID.
-Install:<br><br>
+	is authentication middleware for node.js. Passport uses the concept of strategies to authenticate requests. Strategies can range from verifying username and password credentials, delegated authentication using OAuth (for example, via Facebook or Twitter), or federated authentication using OpenID.
+<br>Install:<br><br>
 	<code style="color:red">npm install passport</code><br><br>
 <b>Usage:</b><br>
 	To use Passport in an Express or Connect-based application, configure it with the required passport.initialize() middleware.<br>
@@ -287,7 +287,7 @@ TwoFAStrategy - It uses passport-2fs-totp as a strategy to implement two factor 
 
 
 <!-- Future of Authetication -->
-<article id="future">
+<article id="future" style="text-align:justify">
 <h5>Emerging Of Authentication</h5>
 <p>Numerous authentication emerges to prevent the possible attacks and to provide a secure environment for users. The International Journal titled “Survey on Risk Based Authentication” gives the outline of how 
 The Risk Based Authentication System provides security for applications based on the legitimacy of user logging in, allowing legitimate users to proceed unimpeded and block fraudsters.<br><br>This type of authentication models a risk based system for each user using their sensitivity of the information.
@@ -304,22 +304,25 @@ The following graphic illustrates how risk-based authentication works based on s
 
 
 <!-- Reference -->
-<article id="reference">
+<article id="reference" style="text-align:justify">
 <h5 style="color:brown">Reference</h5>
-<ul><li><a href="https://pdfs.semanticscholar.org/5f3b/637401712103dcf1656884bf66701ddac3e2.pdf">This is one of the International Journal which discuss all the mobile authentication techniques and gives comparative with usage of the techniques.
-</a></li>
-<li><a href="https://tools.ietf.org/html/rfc6238">RFC 6238</a></li>
-<li><a href="https://www.kuppingercole.com/blog/singh/device-authentication-and-idot-for-iot"> This Blog discusses how an effective authentication works in IoT and identity framework     for IoT devices.
-</a></li>
-<li><a href="http://ijarcsse.com/Before_August_2017/docs/papers/Volume_7/1_January2017/V7I1-01105.pdf">Cloud Service Authentication</a></li>
-<li><a href="https://searchsecurity.techtarget.com/definition/two-factor-authentication">Two Factor Authentication</a></li>
-<li><a href="https://www.npmjs.com/package/passport">Implementation</a></li>
-<li><a href="https://www.npmjs.com/package/passport-remember-me">Implementation</a></li></ul>
+<ol><li><a href="https://pdfs.semanticscholar.org/5f3b/637401712103dcf1656884bf66701ddac3e2.pdf">https://pdfs.semanticscholar.org/5f3b/637401712103dcf1656884bf66701ddac3e2.pdf
+</a><br>This is one of the International Journal which discuss all the mobile authentication techniques and gives comparative with usage of the techniques.</li>
+<br><li><a href="https://tools.ietf.org/html/rfc6238">RFC 6238</a></li>
+<br><li><a href="https://www.kuppingercole.com/blog/singh/device-authentication-and-idot-for-iot"> https://www.kuppingercole.com/blog/singh/device-authentication-and-idot-for-iot
+</a><br>This Blog discusses how an effective authentication works in IoT and identity framework     for IoT devices.</li>
+<br><li><a href="http://ijarcsse.com/Before_August_2017/docs/papers/Volume_7/1_January2017/V7I1-01105.pdf">http://ijarcsse.com/Before_August_2017/docs/papers/Volume_7/1_January2017/V7I1-01105.pdf</a><br>Cloud services & Different kinds of Cloud Authentication is extracted from this link</li>
+<br><li><a href="https://searchsecurity.techtarget.com/definition/two-factor-authentication">Two Factor Authentication</a></li>
+<br><li><a href="https://www.npmjs.com/package/passport">Implementation</a></li>
+<br><li><a href="https://www.npmjs.com/package/passport-remember-me">Implementation</a></li></ol>
 <h5 style="color:brown">Image References</h5>
-<ul><li><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoEAHuIlC7irvL346YTD0a7rOt9ujh55vzj0tLH9H54fuzgUnV&usqp=CAU">IoT Authentication</a></li>
-<li><a href="https://www.stratospherenetworks.com/images/pic-cloud.jpg">Cloud Services</a></li>
-<li><a href="https://www.researchgate.net/profile/Mervat_Bamiah/publication/275036700/figure/fig2/AS:669016616087575@1536517399779/Cloud-Computing-Deployment-Models-Mell-and-Grance-2011.jpg">Cloud Deployment</a></li>
-<li><a href="https://www.netiq.com/documentation/access-manager-45/admin/data/riskunderstanding.html">Risk Based Authentication</a></li>
+<ul><li><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoEAHuIlC7irvL346YTD0a7rOt9ujh55vzj0tLH9H54fuzgUnV&usqp=CAU">https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoEAHuIlC7irvL346YTD0a7rOt9ujh55vzj0tLH9H54fuzgUnV&usqp=CAU</a>
+<br>Diagram depicts how an IoT device is authenticated</li>
+<br><li><a href="https://www.stratospherenetworks.com/images/pic-cloud.jpg">https://www.stratospherenetworks.com/images/pic-cloud.jpg</a><br>Image showing Cloud services was extracted from this link</li>
+<br><li><a href="https://www.researchgate.net/profile/Mervat_Bamiah/publication/275036700/figure/fig2/AS:669016616087575@1536517399779/Cloud-Computing-Deployment-Models-Mell-and-Grance-2011.jpg">www.researchgate.net/profile/Mervat_Bamiah/publication/275036700/figure/fig2/AS:669016616087575@1536517399779/Cloud-Computing-Deployment-Models-Mell-and-Grance-2011.jpg</a>
+<br>Cloud Deployment diagram was extracted</li>
+<br><li><a href="https://www.netiq.com/documentation/access-manager-45/admin/data/riskunderstanding.html">https://www.netiq.com/documentation/access-manager-45/admin/data/riskunderstanding.html</a>
+<br>Image Of how Risk Based Authentication works was extracted</li>
 </article>
 <!-- end of Reference -->
 <footer>
