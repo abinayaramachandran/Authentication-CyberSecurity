@@ -80,7 +80,7 @@ Authentication Featuring Web & Cloud services
     </ul>
 </nav>-->
 <div class="sidenav">
-  <a href="#wrapper"><img id="fprint" src="images/fingerprint.png" alt="ACCENTURE" width= "150px" height= "120px"></a>
+  <a href="#wrapper"><img id="fprint" src="images/fingerprint.png" alt="" width= "150px" height= "120px"></a>
   <a href="#review">Review Of Authentication</a>
   <a href="#devices">Authentication In Different Devices</a>
   <a href="#devices"><li>Mobile</li></a>
@@ -88,7 +88,7 @@ Authentication Featuring Web & Cloud services
   <a href="#cloud"><li>Cloud</li></a>
   <a href="#twofactor">Two Factor Authentication</a>
   <a href="#implementation">Implementation</a>
-  <a href="#future">Furure Of Authentication</a>
+  <a href="#future">Future Of Authentication</a>
   <a href="#reference">Reference</a>
   
 </div>
@@ -173,7 +173,7 @@ The idea of the "cloud" simplifies the many network connections and computer sys
 <p><b>Cloud Computing Deployment Model</b></p>
 <img  src="images/clouddeployment.png" style="margin-left:160px"  alt="" width="400px" height="350px">
 
-<p><b>Authetication In Cloud services</b></p>
+<p><b>Authentication In Cloud services</b></p>
 <p>Due to the nature of outsourced computing or the shared nature of data there is a disadvantage of data security of the cloud system 
 There are three important factors of cloud security requirements, these are confidentiality, integrity and availability widely called as CIA.
 <ul><li><b>Confidentiality</b> - protection of data from unauthorized disclosure preserving control on organizations’ data situated across multiple servers.</li>
@@ -238,22 +238,21 @@ physical device with an app like Google Authenticator, loaded with a secret key 
 </p>
 <p><b>TwoFactor authentication using Node.js:</b><br><br>
  TOTP (Time-based One Time Password)<br>
-	It is defined in <a href="https://tools.ietf.org/html/rfc6238">RFC 6238.</a> There are many open-source implementations for both the client-side and server-side components. In particular, Google has developed an application that is freely available for Android, iOS and the web: Google Authenticator. This application allows us to integrate TOTP easily into our developments. We will explore how to do so in the following sections, but first I'll give you a quick summary of TOTP and how it usually works in two steps:
+	It is defined in <a href="https://tools.ietf.org/html/rfc6238">RFC 6238.</a> Many open-source implementations for both the client-side and server-side components are available. Google has developed Google Authenticator,  an application that is freely available for Android, iOS and the web. This application  generates TOTP  that can be integrated easily into our developments. 
+	We will explore how to do so in the following sections
 <br><ol><li>Enrollment: Enabling 2FA for a specific user.</li>
 <li>Login: Using 2FA to log in</li></ol><br>
 <img  src="images/twofactor.png" style="margin-left:160px"  alt="" >
 
-<p>Passport.js
-	is authentication middleware for node.js. Passport uses the concept of strategies to authenticate requests. Strategies can range from verifying username and password credentials, delegated authentication using OAuth (for example, via Facebook or Twitter), or federated authentication using OpenID.
-<br>Install:<br><br>
+<p>Passport.js is authentication middleware for node.js. The concept of strategies are used for authentication. It includes wide variety of strategies which involves verifying username, password along with using OAuth( Twitter, Facebook, Linkedin) or any OpenID.
+<br><br>Install:<br><br>
 	<code style="color:red">npm install passport</code><br><br>
 <b>Usage:</b><br>
 	To use Passport in an Express or Connect-based application, configure it with the required passport.initialize() middleware.<br>
 	<code style="color:red">var app = express();<br>
 	app.use(passport.initialize());</code><br><br>
 <b>Maintaining Session:</b><br>
-	Passport will maintain persistent login sessions. In order for persistent sessions to work, the authenticated user must be serialized to the session, and deserialized when subsequent requests are made.<br>
-	<br>
+Login sessions will be persistent and it will be maintained by passport.  To maintain the persistent sessions working properly, we must serialize and deserialize the user each time request is made	<br>
 	<code style="color:red">passport.serializeUser(function (user, done) {<br>
   		 return done(null, user._id);   <br>
 });<br><br>
@@ -271,19 +270,50 @@ passport.deserializeUser(function (id, done) {<br>
 </code>
 
 <p><b>Passport-2fa-totp:</b><br><br>
-	This is a module of passport.js and lets you do two factor authentication using username, password and time based one time passport. By adding passport.js, 2fa-totp can be plugged into any application easily. Here we are using Google Authenticator for generating a time based one time password( TOTP).
-<br>The 2FA TOTP authentication strategy authenticates a user using a username, password and TOTP value generated by a hardware device or software application (known as a token). The strategy requires a callback to verify a username and password and a callback to setup TOTP generator.
+This is a module of passport.js and is helpful to do two factor authentication using  time based one time password, username and password. If we have passport.js installed, we can use passport-2fa-totp. It is easy to add and implement this application.. Here we are using Google Authenticator for generating a time based one time password( TOTP).
+<br>The 2FA TOTP authentication mainly uses TwoFAStartegy  strategy authenticates a user using a username, password and TOTP value generated by a physical hardware device or software application. This requires two callbacks- one to verify username and password and the other to setup TOTP generator by sharing secret key as text or QR code. 
 <br><br>
 <code style="color:red">var GoogleAuthenticator = require('passport-2fa-totp').GoogeAuthenticator;<br>
 var TwoFAStartegy = require('passport-2fa-totp').Strategy;<br>
 var RememberMeStrategy = require('passport-remember-me').Strategy;</code><br><br>
-GoogleAuthentictaor - provides utility methods for Google Authenticator<br>
+GoogleAuthenticator - provides utility methods for Google Authenticator<br>
 TwoFAStrategy - It uses passport-2fs-totp as a strategy to implement two factor authentication.
 <br>RemembermeStrategy - It uses passport-remember-me strategy to remember the user when the user visits the page again.<br>
 
-</article>
-<!-- end of Implementation -->
 
+<!-- end of Implementation -->
+<!-- Screenshot of Implementation -->
+<p><b>Use of Google Authenticator to implement Two factor authentication</b><br><br>
+Depicting the working of our implementation of Two factor authentication incorporated to web application:
+
+<ul><li><b>Step 1:</b> User need to register by filling Username and Password fields (this acts as one layer authentication), 
+upon giving the information It will be asked to set “Google Authenticator”.<br><br>
+
+<img  src="images/Screenshot1.png" style="margin-left:160px"  alt="" width="400px" height="350px"></li><br>
+
+<li><b>Step 2:</b> After creating an account by registering it will prompt to scan the QR code as shown below for user verification.<br>
+QR code consists of a shared secret key which is being used to authenticate the user<br><br>
+
+<img  src="images/Screenshot2.png" style="margin-left:160px"  alt="" width="400px" height="350px"></li><br>
+
+<li><b>Step 3:</b> Below shows how the TOTP is generated when we scan QR code while registering an account. New TOTP(Time based One-time password) 
+is generated for every 30seconds. When we login the QR code is scanned to get authenticated for first time user.<br><br>
+
+<img  src="images/Screenshot4.png" style="margin-left:160px"  alt="" width="400px" height="350px"></li><br>
+
+<li><b>Step 4:</b> For login the code generated in the “Google Authenticator App” is being prompted to enter to authenticate the user. 
+This acts as a second factor of authentication.<br><br>
+
+<img  src="images/Screenshot3.png" style="margin-left:160px"  alt="" width="400px" height="350px"></li><br>
+
+<li><b>Step 5:</b> On Successful login to the profile, we can set up google Authenticator again to make sure we have secured authentication.
+<br><br>
+<img  src="images/Screenshot5.png" style="margin-left:160px"  alt="" width="400px" height="350px"></li></ul><br>
+</p>
+
+
+</article>
+<!-- end of Screenshot of Implementation -->
 
 
 <!-- Future of Authetication -->
@@ -317,7 +347,7 @@ The following graphic illustrates how risk-based authentication works based on s
 <br><li><a href="https://searchsecurity.techtarget.com/definition/two-factor-authentication">href="https://searchsecurity.techtarget.com/definition/two-factor-authentication</a><br>Description and explanation of Two Factor Authentication extracted</li>
 <br><li><a href="https://www.npmjs.com/package/passport">https://www.npmjs.com/package/passport</a><br>A module of node.js is used for implementing two factor authentication using google authenticator</li>
 
-<h5 style="color:brown">Image References</h5>
+<h5 style="color:brown">Image Reference</h5>
 <ul><li><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoEAHuIlC7irvL346YTD0a7rOt9ujh55vzj0tLH9H54fuzgUnV&usqp=CAU">https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoEAHuIlC7irvL346YTD0a7rOt9ujh55vzj0tLH9H54fuzgUnV&usqp=CAU</a>
 <br>Diagram depicts how an IoT device is authenticated</li>
 <br><li><a href="https://www.stratospherenetworks.com/images/pic-cloud.jpg">https://www.stratospherenetworks.com/images/pic-cloud.jpg</a><br>Image showing Cloud services was extracted from this link</li>
